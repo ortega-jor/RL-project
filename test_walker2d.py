@@ -104,7 +104,7 @@ model = env.unwrapped.model # Access the MuJoCo model
 # Modify model geometry (link lenghts)
 modify_geometry_parameters(model)
 modify_mass_parameters(model)
-modify_positions(model)
+# modify_positions(model)
 
 ########## Printing for test ##########
 #print("Initial state from env:", env.unwrapped.data.qpos)

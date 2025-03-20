@@ -53,11 +53,17 @@ def print_model_parameters(model):
 # Function to print and modify geometry parameters
 def modify_geometry_parameters(model):
     # Modify link lengths (example: double the length of thigh and leg)
-    model.geom_size[1] = [0.05, 0.2,  0.]  # torso_geom: 
-    model.geom_size[2], model.geom_size[5] = [0.05, 0.225,0.], [0.05, 0.225,0.]  # thigh_geom, thigh_left_geom : 
+    model.geom_size[1] = [0.08, 0.2,  0.]  # torso_geom: 
+    model.geom_size[2], model.geom_size[5] = [0.05, 0.225, 0.], [0.05, 0.225, 0.]  # thigh_geom, thigh_left_geom : 
     model.geom_size[3], model.geom_size[6] = [0.04, 0.25, 0.], [0.04, 0.25, 0.]  # leg_geom, leg_left_geom: 
-    model.geom_size[4], model.geom_size[7] = [0.06, 0.1,  0.], [0.06, 0.1,  0.]  # foot_geom, foot_left_geom: 
+    model.geom_size[4], model.geom_size[7] = [0.06, 0.05,  0.], [0.06, 0.05,  0.]  # foot_geom, foot_left_geom: 
 
+def modify_mass_parameters(model):
+    # Modify the mass of specific body parts
+    model.body_mass[1] = 4.15  # Set mass of torso 
+    model.body_mass[2], model.body_mass[5] = 0.6, 0.6  # Set mass of thigh
+    model.body_mass[3], model.body_mass[6] = 0.3, 0.3  # Set mass of leg
+    model.body_mass[4], model.body_mass[7]= 0.1, 0.1  # Set mass of foot
 ## ----------------------------------------------------------------------------------------- ##
 
 
@@ -69,12 +75,12 @@ model = env.unwrapped.model # Access the MuJoCo model
 
 # Modify model geometry (link lenghts)
 modify_geometry_parameters(model)
+modify_mass_parameters(model)
 
 ########## Printing for test ##########
 #print("Initial state from env:", env.unwrapped.data.qpos)
 print_model_parameters(model)
 gui_test(500) #open gui and run for 500 steps to visualize
-
 #****************************************************************************************#
 
 env.close()
