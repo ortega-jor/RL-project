@@ -54,7 +54,7 @@ def print_model_parameters(model):
 # Function to print and modify geometry parameters
 def modify_geometry_parameters(model):
     # Modify link lengths (example: double the length of thigh and leg) MuJoCo uses capsules which is made up of [radius, hal-length]
-    model.geom_size[1] = [0.05, 0.05, 0.]  # torso_geom: 
+    model.geom_size[1] = [0.05, 0.2, 0.]  # torso_geom: 
     model.geom_size[2], model.geom_size[5] = [0.05, 0.225, 0.], [0.05, 0.225, 0.]  # thigh_geom, thigh_left_geom : [radius, hal-length, 0.]
     model.geom_size[3], model.geom_size[6] = [0.04, 0.25, 0.], [0.04, 0.25, 0.]  # leg_geom, leg_left_geom: [radius, hal-length, 0.]
     model.geom_size[4], model.geom_size[7] = [0.06, 0.1, 0.], [0.06, 0.1, 0.]  # foot_geom, foot_left_geom: [radius, hal-length, 0.]
