@@ -34,9 +34,7 @@ The Harpy robot has an unusual structure: a heavy torso and massless legs, makin
 - Torque limits: ±20 Nm (hips/knees), ±10 Nm (ankles)
 
 ### Reward Function:
-\[
-\text{Reward} = \text{healthy reward} + \text{forward velocity} - \text{control cost}
-\]
+**Reward** = healthy_reward + forward_velocity − control_cost
 
 Modified versions penalize excessive energy use and favor stable/slow gaits.
 
